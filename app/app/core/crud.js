@@ -1,0 +1,6 @@
+Application.CRUD = {
+	'CREATED' : 'CREATED',
+	'RETRIEVED' : 'RETRIEVED',
+	'UPDATED' : 'UPDATED',
+	'DELETED' : 'DELETED'
+};

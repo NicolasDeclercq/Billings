@@ -1,0 +1,175 @@
+// bower:scss
+// endbower
+
+/* Loader */
+$loader_background : #009688;
+$loader_details: #FFF;
+$loader_animtation: linear 3s infinite;
+.loader{position:absolute;top:0;left:0;width:100%;height:100%;background-color:$loader_background;display:block;text-align:center}
+.loader .container{width:200px;height:200px;position:relative;margin:10% auto;vertical-align:center;-webkit-animation:loaderAnimationFrames $loader_animtation;animation:loaderAnimationFrames $loader_animtation;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation:loaderAnimationFrames $loader_animtation;-webkit-transform-origin:50% 50%;-moz-animation:loaderAnimationFrames $loader_animtation;-moz-transform-origin:50% 50%;-o-animation:loaderAnimationFrames $loader_animtation;-o-transform-origin:50% 50%;-ms-animation:loaderAnimationFrames $loader_animtation;-ms-transform-origin:50% 50%}
+.loader .container .circle{width:40px;height:40px;background:$loader_details;display:block;border-radius:50%;position:absolute;-webkit-animation:loaderCirclesAnimationFrames $loader_animtation;animation:loaderCirclesAnimationFrames $loader_animtation;-webkit-transform-origin:50% 50%;-ms-transform-origin:50% 50%;transform-origin:50% 50%;-webkit-animation:loaderCirclesAnimationFrames $loader_animtation;-webkit-transform-origin:50% 50%;-moz-animation:loaderCirclesAnimationFrames $loader_animtation;-moz-transform-origin:50% 50%;-o-animation:loaderCirclesAnimationFrames $loader_animtation;-o-transform-origin:50% 50%;-ms-animation:loaderCirclesAnimationFrames $loader_animtation;-ms-transform-origin:50% 50%}
+.loader .container .circle:nth-child(1){top:-15px;left:80px;animation-delay:1s;-webkit-animation-delay:1s;-moz-animation-delay:1s;-o-animation-delay:1s;-ms-animation-delay:1s}
+.loader .container .circle:nth-child(2){top:130px;left:0;animation-delay:2s;-webkit-animation-delay:2s;-moz-animation-delay:2s;-o-animation-delay:2s;-ms-animation-delay:2s}
+.loader .container .circle:nth-child(3){top:130px;left:160px;animation-delay:3s;-webkit-animation-delay:3s;-moz-animation-delay:3s;-o-animation-delay:3s;-ms-animation-delay:3s}
+@keyframes loaderAnimationFrames{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes loaderAnimationFrames{0%{-webkit-transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg)}}@keyframes loaderCirclesAnimationFrames{0%{-webkit-transform:scaleX(1) scaleY(1);transform:scaleX(1) scaleY(1)}49%{-webkit-transform:scaleX(0.5) scaleY(0.5);transform:scaleX(0.5) scaleY(0.5)}100%{-webkit-transform:scaleX(1) scaleY(1);transform:scaleX(1) scaleY(1)}}@-webkit-keyframes loaderCirclesAnimationFrames{0%{-webkit-transform:scaleX(1) scaleY(1)}49%{-webkit-transform:scaleX(0.5) scaleY(0.5)}100%{-webkit-transform:scaleX(1) scaleY(1)}}
+
+
+
+$primary-color : #2196F3;
+$secondary-color : #009688;
+$accent-color : #FFEB3B;
+
+$main-bg : #ECEFF1;
+
+$dark-color : #000000;
+$light-color: #FFFFFF;
+
+
+%box-bottom{
+	content:'';
+	position:absolute;
+	bottom:0;
+	left:0;
+	height:1px;
+	width:100%;
+	background-color: #000000;
+	opacity: 0.5;
+}
+%box-top{
+	content:'';
+	position:absolute;
+	top:0;
+	left:0;
+	height:1px;
+	width:100%;
+	background-color: #FFFFFF;
+	opacity: 0.25;
+}
+
+/* MAIN */
+*{
+	box-sizing : border-box;
+	padding:0;
+	margin:0;
+}
+
+header, .header,footer, .footer{
+	position:relative;
+	padding : 0.5rem;
+	background-color : $primary-color;
+	color : $light-color;
+	box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.5);
+	z-index:10;
+	h1{
+		margin : 0;
+	}
+}
+header, .header{
+	min-height : 5em;
+	&:after{
+		@extend %box-bottom;
+	}
+}
+footer, .footer{
+	&:before{
+		@extend %box-top;
+	}
+}
+main,.main{
+	flex: 1 auto;
+	background-color : $main-bg;
+	overflow:auto;
+	z-index: 1;
+}
+
+.page{
+  display:flex;
+  flex-direction : column;
+  width:100%;
+  height:100%;
+  margin : 0;
+  padding : 0;
+  z-index:100;
+}
+.page .box{
+	display:inline-block;
+	&:after{
+		@extend %box-bottom;
+	}
+	&:before{
+		@extend %box-top;
+	}
+}
+.cycle{
+	margin:0;
+	padding:0;
+}
+.days-of-week{
+	padding : 0.5rem 0;
+	.box{
+		width : 14%;
+		text-align : center;
+	}
+}
+
+.square {
+	display:inline-block;
+	width: 14%;
+	padding-bottom: 14%;
+	margin:0%;
+	position:relative;
+	background-color:white;
+	color: #000;
+}
+.square:before{
+  content:"";
+  border:1px solid #000;
+  border-top-color:#fff;
+  border-left-color:#fff;
+  opacity:0.2;
+  width:100%;
+  height:100%;
+  position:absolute;
+}
+.square.empty{
+	background : grey;
+}
+.square.empty:after{
+	content : "+";
+	width : 100%;
+	height: 100%;
+	top: 0;
+	left:0;
+	text-align : center;
+	display: table-cell;
+	vertical-align: middle;
+}
+.square .content{
+	position:absolute;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+	text-align:center;
+}
+
+.square .table{
+	height:100%;
+	color:#000;
+  }
+.table{
+  display:table;  
+  width:100%;
+  color:white;
+  padding:0.25em;
+}
+.table-row{
+  display:table-row;
+}
+.table-group{
+  display: table-row-group;
+}
+.table-cell{
+  display:table-cell;
+  text-align:center;
+  vertical-align:middle;
+}
